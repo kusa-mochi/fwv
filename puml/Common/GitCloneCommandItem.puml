@@ -1,0 +1,9 @@
+@startuml
+class GitCloneCommandItem {
+    + RemoteUrl : string
+    + WorkingDirectoryPath : string
+    + <<override>> Clone() : object
+    + GitCloneCommandItem(remoteUrl:string, workingDirectoryPath:string)
+}
+GitCommandItemBase <|-- GitCloneCommandItem
+@enduml

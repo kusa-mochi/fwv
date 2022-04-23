@@ -1,0 +1,8 @@
+@startuml
+class MainWindowViewModel {
+    + MainWindowViewModel(regionManager:IRegionManager)
+    + NavigateTo(viewName:string) : void
+}
+BindableBase <|-- MainWindowViewModel
+MainWindowViewModel --> "RegionManager" IRegionManager
+@enduml

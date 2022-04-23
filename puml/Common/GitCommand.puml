@@ -1,0 +1,9 @@
+@startuml
+enum GitCommand {
+    Add,
+    Clone,
+    Commit,
+    Pull,
+    Push,
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+abstract class GitCommandItemBase {
+    + WorkingDirectory : string
+    + {abstract} Clone() : object
+}
+ICloneable <|-- GitCommandItemBase
+GitCommandItemBase --> "Command" GitCommand
+@enduml

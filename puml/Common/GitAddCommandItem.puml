@@ -1,0 +1,7 @@
+@startuml
+class GitAddCommandItem {
+    + <<override>> Clone() : object
+    + GitAddCommandItem(workingDirectory:string)
+}
+GitCommandItemBase <|-- GitAddCommandItem
+@enduml

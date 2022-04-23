@@ -1,0 +1,16 @@
+@startuml
+class RepositoryListViewModel {
+    ExecuteOpenNewRepositoryDialogCommand() : void
+    ExecuteRemoveRepositoryCommand(parameter:string) : void
+    + RepositoryListViewModel(regionManager:IRegionManager, dialogService:IDialogService)
+}
+class "ObservableCollection`1"<T> {
+}
+class "DelegateCommand`1"<T> {
+}
+BindableBase <|-- RepositoryListViewModel
+RepositoryListViewModel --> "Repositories<RepositoryListItem>" "ObservableCollection`1"
+RepositoryListViewModel --> "ActiveItem" RepositoryListItem
+RepositoryListViewModel --> "OpenNewRepositoryDialogCommand" DelegateCommand
+RepositoryListViewModel --> "RemoveRepositoryCommand<string>" "DelegateCommand`1"
+@enduml

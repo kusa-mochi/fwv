@@ -1,0 +1,7 @@
+@startuml
+class DialogResultParameters {
+    + AddRange(dic:Dictionary<string, object>) : void
+    + DialogResultParameters()
+}
+DialogParameters <|-- DialogResultParameters
+@enduml

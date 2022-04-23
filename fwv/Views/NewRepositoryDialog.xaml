@@ -1,0 +1,58 @@
+<UserControl x:Class="fwv.Views.NewRepositoryDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="False" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Converters="clr-namespace:fwv.Converters" xmlns:local="clr-namespace:fwv.Views" mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="500" Width="500" Height="Auto">
+    <UserControl.Resources>
+        <Converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Margin="32">
+            <TextBlock Text="Repository Place" Margin="0,0,0,16" />
+            <StackPanel Margin="16,0,0,0">
+                <RadioButton
+                        IsChecked="{Binding RepositoryPlace, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Remote}"
+                        Content="Remote Git Repository" />
+                <Grid Margin="32,0,0,0" IsEnabled="{Binding IsRemoteEnabled}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Repository URL" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Text="{Binding RemoteRepositoryUrl}" VerticalAlignment="Center" />
+                </Grid>
+                <RadioButton
+                        IsChecked="{Binding RepositoryPlace, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Local}"
+                        Content="Local Folder" />
+                <Grid Margin="32,0,0,0" IsEnabled="{Binding IsLocalEnabled}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Folder Path" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Text="{Binding LocalBareRepositoryPath}" VerticalAlignment="Center"
+                            Margin="0,0,8,0" />
+                    <Button Grid.Column="2" Click="SelectLocalBareRepository" VerticalAlignment="Center">...</Button>
+                </Grid>
+            </StackPanel>
+            <TextBlock Text="Working Directory" Margin="0,16,0,16" />
+            <Grid Margin="48,0,0,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Folder Path" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Text="{Binding WorkingDirectoryPath, Mode=TwoWay}" VerticalAlignment="Center"
+                        Margin="0,0,8,0" />
+                <Button Grid.Column="2" Click="SelectWorkingDirectory" VerticalAlignment="Center">...</Button>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Command="{Binding OkCommand}" Margin="0,0,8,0">OK</Button>
+                <Button Command="{Binding CancelCommand}">Cancel</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

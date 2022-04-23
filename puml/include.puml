@@ -1,0 +1,58 @@
+@startuml
+!include .\Common\DialogResultParameters.puml
+!include .\Common\Enums.puml
+!include .\Common\GitAddCommandItem.puml
+!include .\Common\GitCloneCommandItem.puml
+!include .\Common\GitCommand.puml
+!include .\Common\GitCommandItemBase.puml
+!include .\Common\GitCommitCommandItem.puml
+!include .\Common\GitPushCommandItem.puml
+!include .\Common\LogManager.puml
+!include .\Converters\BoolToEnumConverter.puml
+!include .\Exceptions\ExceptionBase.puml
+!include .\Models\CommandOutput.puml
+!include .\Models\FileWatcher.puml
+!include .\Models\GitManager.puml
+!include .\Models\IdentifiedFileSystemWatcher.puml
+!include .\Models\ModifiedEventArgs.puml
+!include .\Models\RepositoryListItem.puml
+!include .\Properties\Resources.Designer.puml
+!include .\Properties\Settings.Designer.puml
+!include .\ViewModels\MainWindowViewModel.puml
+!include .\ViewModels\NewRepositoryDialogViewModel.puml
+!include .\ViewModels\RepositoryListViewModel.puml
+!include .\Views\MainWindow.xaml.puml
+!include .\Views\NewRepositoryDialog.xaml.puml
+!include .\Views\RepositoryList.xaml.puml
+
+MainWindow --> RepositoryList
+MainWindow --> NewRepositoryDialog
+MainWindow --> MainWindowViewModel
+MainWindow --> LogManager
+
+RepositoryList --> RepositoryListViewModel
+
+NewRepositoryDialog --> NewRepositoryDialogViewModel
+NewRepositoryDialog --> EnumToBoolConverter
+
+RepositoryListViewModel --> GitManager
+RepositoryListViewModel --> FileWatcher
+RepositoryListViewModel --> GitAddCommandItem
+RepositoryListViewModel --> GitCommitCommandItem
+RepositoryListViewModel --> GitPushCommandItem
+
+NewRepositoryDialog --> DialogResultParameters
+
+FileWatcher --> ModifiedEventArgs
+FileWatcher --> IdentifiedFileSystemWatcher
+FileWatcher --> LogManager
+
+GitManager --> Settings
+GitManager --> CommandOutput
+GitManager --> LogManager
+GitManager --> GitCommandItemBase
+GitManager --> GitCloneCommandItem
+GitManager --> GitAddCommandItem
+GitManager --> GitCommitCommandItem
+GitManager --> GitPushCommandItem
+@enduml

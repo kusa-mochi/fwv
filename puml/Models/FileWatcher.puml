@@ -1,0 +1,10 @@
+@startuml
+class FileWatcher {
+    +  <<event>> Modified : ModifiedEventHandler 
+    + FileWatcher()
+    + AddDirectory(hash:string, directoryPath:string) : void
+    + RemoveDirectory(hash:string) : void
+    + Dispose() : void
+}
+IDisposable <|-- FileWatcher
+@enduml

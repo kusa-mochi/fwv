@@ -1,0 +1,21 @@
+@startuml
+class NewRepositoryDialogViewModel {
+    + IsRemoteEnabled : bool <<get>> <<set>>
+    + IsLocalEnabled : bool <<get>> <<set>>
+    + RemoteRepositoryUrl : string <<get>> <<set>>
+    + LocalBareRepositoryPath : string <<get>> <<set>>
+    + WorkingDirectoryPath : string <<get>> <<set>>
+    ExecuteOkCommand() : void
+    ExecuteCancelCommand() : void
+    + Title : string <<get>>
+    +  <<event>> RequestClose : Action<IDialogResult> 
+    + CanCloseDialog() : bool
+    + OnDialogClosed() : void
+    + OnDialogOpened(parameters:IDialogParameters) : void
+}
+BindableBase <|-- NewRepositoryDialogViewModel
+IDialogAware <|-- NewRepositoryDialogViewModel
+NewRepositoryDialogViewModel --> "RepositoryPlace" RepositoryPlace
+NewRepositoryDialogViewModel --> "OkCommand" DelegateCommand
+NewRepositoryDialogViewModel --> "CancelCommand" DelegateCommand
+@enduml

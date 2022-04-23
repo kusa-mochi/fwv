@@ -1,0 +1,8 @@
+@startuml
+class GitPushCommandItem {
+    + Branch : string = "main"
+    + <<override>> Clone() : object
+    + GitPushCommandItem(workingDirectory:string, branch:string)
+}
+GitCommandItemBase <|-- GitPushCommandItem
+@enduml

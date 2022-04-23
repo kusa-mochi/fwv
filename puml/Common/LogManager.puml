@@ -1,0 +1,9 @@
+@startuml
+class LogManager {
+    + AppendLog(s:string) : void
+    + AppendErrorLog(s:string) : void
+    + Dispose() : void
+    + {static} GetInstance() : LogManager
+}
+IDisposable <|-- LogManager
+@enduml

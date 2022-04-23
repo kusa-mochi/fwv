@@ -1,0 +1,8 @@
+@startuml
+class GitCommitCommandItem {
+    + Message : string = null
+    + <<override>> Clone() : object
+    + GitCommitCommandItem(workingDirectory:string, message:string)
+}
+GitCommandItemBase <|-- GitCommitCommandItem
+@enduml

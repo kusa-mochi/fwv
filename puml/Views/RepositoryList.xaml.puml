@@ -1,0 +1,6 @@
+@startuml
+class RepositoryList <<partial>> {
+    + RepositoryList()
+}
+UserControl <|-- RepositoryList
+@enduml

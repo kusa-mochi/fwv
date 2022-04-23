@@ -1,0 +1,6 @@
+@startuml
+class CommandOutput <<struct>> {
+    + StandardOutput : string
+    + StandardError : string
+}
+@enduml

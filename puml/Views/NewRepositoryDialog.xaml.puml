@@ -1,0 +1,6 @@
+@startuml
+class NewRepositoryDialog <<partial>> {
+    + NewRepositoryDialog()
+}
+UserControl <|-- NewRepositoryDialog
+@enduml

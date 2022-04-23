@@ -1,0 +1,6 @@
+@startuml
+class Settings <<sealed>> <<partial>> {
+    + WatchInterval : int <<get>>
+}
+Settings --> "Default" Settings
+@enduml

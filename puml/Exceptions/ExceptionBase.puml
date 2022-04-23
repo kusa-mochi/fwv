@@ -1,0 +1,7 @@
+@startuml
+class ExceptionBase {
+    + ExceptionBase()
+    + ExceptionBase(message:string)
+}
+Exception <|-- ExceptionBase
+@enduml

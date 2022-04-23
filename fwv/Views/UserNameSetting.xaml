@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="fwv.Views.UserNameSetting" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:fwv.Views"
+        mc:Ignorable="d" d:DesignHeight="640" d:DesignWidth="480" Width="640" Height="480">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Input your user settings on the system." />
+        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding UserName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                md:HintAssist.Hint="User Name" />
+        <DockPanel>
+            <Button DockPanel.Dock="Right" Command="{Binding OkCommand}">
+                OK
+            </Button>
+        </DockPanel>
+    </StackPanel>
+</UserControl>

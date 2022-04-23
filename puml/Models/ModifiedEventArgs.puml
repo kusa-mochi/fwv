@@ -1,0 +1,9 @@
+@startuml
+class ModifiedEventArgs {
+    + FullPath : string <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + WatcherHash : string <<get>> <<set>>
+    + ModifiedEventArgs(directory:string, name:string, watcherHash:string)
+}
+EventArgs <|-- ModifiedEventArgs
+@enduml

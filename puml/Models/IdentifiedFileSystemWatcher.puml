@@ -1,0 +1,7 @@
+@startuml
+class IdentifiedFileSystemWatcher {
+    + Hash : string <<get>> <<set>> = null
+    + IdentifiedFileSystemWatcher(directoryPath:string)
+}
+FileSystemWatcher <|-- IdentifiedFileSystemWatcher
+@enduml

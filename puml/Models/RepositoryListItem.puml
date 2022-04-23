@@ -1,0 +1,8 @@
+@startuml
+class RepositoryListItem {
+    + Hash : string <<get>>
+    + IsModified : bool <<get>> <<set>>
+    + RepositoryUrl : string <<get>> <<set>>
+    + LocalDirectoryPath : string <<get>> <<set>>
+}
+@enduml
